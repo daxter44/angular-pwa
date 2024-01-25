@@ -8,6 +8,10 @@
       <span class="badge bg-danger" *ngIf="!isOnline">Offline</span>
     </div>
   </div>
+  <div class="w-100 d-flex justify-content-center">
+    <button class="col-4" routerLink="exchange">Waluty</button>
+    <button class="col-4" routerLink="galery">Galeria</button>
+  </div>
 </div>
 <router-outlet></router-outlet>
 <div class="w-100 position-absolute top-0" *ngIf="modalVersion">

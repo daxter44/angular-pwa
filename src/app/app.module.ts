@@ -10,13 +10,18 @@ import { ExchangeRateComponent } from './containers/exchange-rate/exchange-rate.
 import { CurrencyService } from './services/currency.service';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { GaleryComponent } from './containers/galery/galery.component';
 
 @NgModule({
-  declarations: [AppComponent, ExchangeRateComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
+    FormsModule,
+    ExchangeRateComponent,
+    GaleryComponent,
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
@@ -25,7 +30,6 @@ import { HttpClientModule } from '@angular/common/http';
       registrationStrategy: 'registerWhenStable:30000',
     }),
   ],
-  providers: [CurrencyService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

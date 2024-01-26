@@ -1,14 +1,6 @@
 import { Injectable, signal } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {
-  Observable,
-  filter,
-  first,
-  interval,
-  map,
-  mergeMap,
-  switchMap,
-} from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { filter, first, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',

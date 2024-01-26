@@ -1,5 +1,5 @@
-import { Component, OnDestroy, effect } from '@angular/core';
-import { Subject, interval, switchMap, takeUntil } from 'rxjs';
+import { Component, effect } from '@angular/core';
+import { interval, switchMap } from 'rxjs';
 import { ImageService } from 'src/app/services/image.service';
 
 @Component({

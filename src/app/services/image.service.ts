@@ -18,13 +18,6 @@ export class ImageService {
 
   constructor(private http: HttpClient) {}
 
-  refreshImage() {
-    this.getImage().subscribe();
-    interval(15000)
-      .pipe(switchMap(() => this.getImage()))
-      .subscribe();
-  }
-
   getImage() {
     return this.http
       .get('https://random.imagecdn.app/v1/image?width=500&height=150', {
@@ -34,7 +27,6 @@ export class ImageService {
         first(),
         filter(Boolean),
         map((response: any) => {
-          console.log(response);
           this.image.set(response);
         })
       );

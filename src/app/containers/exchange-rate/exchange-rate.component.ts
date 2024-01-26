@@ -25,12 +25,12 @@ export class ExchangeRateComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.currencyService.getCurrencies();
+  get currenciesList() {
+    return this.currencyService.currencies;
   }
 
-  public currenciesList() {
-    return this.currencyService.currencies();
+  ngOnInit(): void {
+    this.currencyService.getCurrencies();
   }
 
   public setCurrency(event: any) {

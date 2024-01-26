@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, computed, effect, signal } from '@angular/core';
+import { Component, OnInit, effect, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
 import { rate } from 'src/app/interfaces/rate.interface';
 import { CurrencyService } from 'src/app/services/currency.service';
 

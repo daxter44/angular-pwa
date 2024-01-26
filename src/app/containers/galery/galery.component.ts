@@ -19,11 +19,11 @@ export class GaleryComponent {
     });
   }
 
-  ngOnInit(): void {
-    this.imageService.getImage().subscribe();
+  get image() {
+    return this.imageService.image;
   }
 
-  public image() {
-    return this.imageService.image();
+  ngOnInit(): void {
+    this.imageService.getImage().subscribe();
   }
 }

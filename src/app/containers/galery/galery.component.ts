@@ -9,17 +9,13 @@ import { ImageService } from 'src/app/services/image.service';
   templateUrl: './galery.component.html',
   styleUrl: './galery.component.scss',
 })
-export class GaleryComponent implements OnDestroy {
-  private destroy$ = new Subject<void>();
-
+export class GaleryComponent {
   constructor(public imageService: ImageService) {
-    effect(() => {
-      interval(30000)
-        .pipe(
-          takeUntil(this.destroy$),
-          switchMap(() => this.imageService.getImage())
-        )
+    effect((oncleanup) => {
+      const refreshImage = interval(30000)
+        .pipe(switchMap(() => this.imageService.getImage()))
         .subscribe();
+      oncleanup(() => refreshImage.unsubscribe());
     });
   }
 
@@ -29,10 +25,5 @@ export class GaleryComponent implements OnDestroy {
 
   public image() {
     return this.imageService.image();
-  }
-
-  ngOnDestroy() {
-    this.destroy$.next();
-    this.destroy$.complete();
   }
 }

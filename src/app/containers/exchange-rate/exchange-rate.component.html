@@ -1,0 +1,35 @@
+<div class="d-flex container flex-column justify-items-center w-100">
+  <div class="col-6">
+    <h2>1. Wpisz kwotę (PLN)</h2>
+    <input
+      [ngModel]="baseValue"
+      (ngModelChange)="baseValue.set($event)"
+      type="number"
+      class="m-2"
+    />
+  </div>
+
+  <div class="col-6">
+    <h2>2. Wybierz walutę</h2>
+    <select
+      [ngModel]="selectedCur()"
+      (ngModelChange)="selectedCur.set($event)"
+      class="m-2"
+    >
+      <option *ngFor="let currency of currenciesList()" [ngValue]="currency">
+        {{ currency.currency }}
+      </option>
+    </select>
+  </div>
+  <div class="col-6">
+    <h2>3. Wartość {{ selectedCur()?.code }}</h2>
+    <p class="m-2">{{ targetValue | number : "1.0-2" }}</p>
+  </div>
+  @if(selectedCur()) {
+  <div class="col-6">
+    <h2>4. Obecny kurs {{ selectedCur()?.code }}</h2>
+    <p class="m-2">{{ selectedCur()?.mid | number : "1.0-2" }}</p>
+  </div>
+
+  }
+</div>
